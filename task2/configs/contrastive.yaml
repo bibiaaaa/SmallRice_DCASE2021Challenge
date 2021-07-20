@@ -1,0 +1,37 @@
+seed: 647
+train_df_path: data/labels/dev_add_train.tsv
+eval_source_df_path: data/labels/dev_source.tsv
+eval_target_df_path: data/labels/dev_target.tsv
+train_hdf5_path: data/hdf5/dev_train.h5 
+eval_source_hdf5_path: data/hdf5/dev_source.h5
+eval_target_hdf5_path: data/hdf5/dev_target.h5
+domain: [source, target]
+train_sections: [0,1,2] 
+eval_sections: [0,1,2]
+optimizer: Adam
+optimizer_args:
+    lr: 0.00001
+model:
+    structure: ContrastiveModel
+    args: 
+        ae_num_layer: 4
+        ae_input_dim: 8192
+        ae_hidden_dim: 128
+        ae_bottleneck_dim: 8
+        hidden_dim: 256
+        cnn_outputdim: 3
+        
+ae_criterion: MSELoss
+cnn_criterion: CrossEntropyLoss
+cl_criterion: SupConLoss
+max_epochs: 100 
+num_workers: 5 
+train_batch_size: 32
+eval_batch_size: 16
+acoustic_paras:
+    n_frames: 64
+    n_mels: 128
+    n_fft: 1024
+    hop_size: 512
+    hop_frames: 8
+medianfilter: False

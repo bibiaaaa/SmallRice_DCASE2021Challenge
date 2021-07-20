@@ -1,0 +1,17 @@
+outputpath: experiments/
+student: CDur
+train_weak_data: data/weak_train.tsv
+train_syn_data: data/synthetic_train.tsv
+cv_syn_data: data/synthetic_validation.tsv
+test_data: data/validation_cleaned.tsv
+unlabeled_data: data/unlabeled_train.tsv
+consistency_criterion: BCELoss
+useunb: True
+usesyn: True
+spectransforms:
+    TimeMasking:
+        time_mask_param: 96
+        iid_masks: 2
+    FrequencyMasking:
+        freq_mask_param: 12
+        iid_masks: 2

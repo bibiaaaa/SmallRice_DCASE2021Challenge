@@ -1,0 +1,6 @@
+outputpath: experiments/
+student: CDur
+train_weak_data: data/weak_train.tsv
+train_syn_data: data/synthetic_train.tsv
+cv_syn_data: data/synthetic_validation.tsv
+test_data: data/validation_cleaned.tsv
